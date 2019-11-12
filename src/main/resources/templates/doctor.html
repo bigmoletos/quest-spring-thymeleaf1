@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Doctor Secret Room</title>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="fragments/head.html :: head">
+<link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Lato&display=swap"  rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato&display=swap"  rel="stylesheet">
+<link rel="stylesheet"  href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+  integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+  crossorigin="anonymous">
+    <title>Page d'erreur</title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>Header TODO</header>
+<header th:insert="fragments/head.html :: head"></header>
 <section>
-    <h1>Welcome $doctorname</h1>
-    <h3>Your number is $doctornumber</h3>
+    <h1 th:text="|Welcome ${name}!|">Welcome John Smith</h1>
+    <h3 th:text="|your number is  ${number}|">Your number is 0</h3>
 </section>
-<footer>Footer TODO</footer>
+<!-- <footer>Footer TODO</footer> -->
+<!-- http://localhost:8084/doctor?name=tonton&number=2 -->
+<!-- <a th:href="@{/doctor(name=${name},number=${number})}">lien vers la fiche du docteur</a> -->
+<footer th:insert="fragments/footer.html :: footer"></footer>
 </body>
 </html>

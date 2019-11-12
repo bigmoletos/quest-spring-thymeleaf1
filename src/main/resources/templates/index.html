@@ -1,35 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Doctor Sign In</title>
+    <title>page index</title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-    <nav>
-        <span>Doctor Secret Service</span>
-        <a href="/">Sign In</a>
-    </nav>
-</header>
+<header th:insert="fragments/head.html :: head"></header>
+<!-- <header> -->
+<!--     <nav> -->
+<!--         <span>Doctor Secret Service</span> -->
+<!--         <a href="/">Sign In</a> -->
+<!--     </nav> -->
+<!-- </header> -->
+
+<!-- <form method="get" action="doctor"> -->
+<!--     <fieldset> -->
+<!--         <label for="name">Your doctor's name: </label> -->
+<!--         <input id="name" name="name" type="text" placeholder="Your name here"> -->
+<!--         <hr> -->
+<!--         <label for="number">Your doctor's number: </label> -->
+<!--         <input id="number" name="number" type="number" placeholder="0"> -->
+<!--         <hr> -->
+<!--         <input type="submit" value="Sign In"> -->
+<!--     </fieldset> -->
+<!-- </form> -->
+
 <form method="get" action="doctor">
     <fieldset>
-        <label for="name">Your doctor's name: </label>
-        <input id="name" name="name" type="text" placeholder="Your name here">
+        <label  for="name" th:text="|Your doctor's ${name}!|" >Your doctor's  name</label>
+        <input id="name"  name="name" type="text" placeholder="Your name here">
+<!--         <input id="name"  th:field="${name}" type="text" placeholder="Your name here"> -->
         <hr>
-        <label for="number">Your doctor's number: </label>
-        <input id="number" name="number" type="number" placeholder="0">
+        <label for="number" th:text="|Your doctor's ${number}!|">Your doctor's  number: </label>
+        <input id="number"  name="number" type="number" placeholder="Your number here">
+<!--         <input id="number"  th:field="*{number}" type="number" placeholder="Your id here"> -->
         <hr>
         <input type="submit" value="Sign In">
     </fieldset>
 </form>
-<footer>
-    <ul>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">TARDIS</a></li>
-    </ul>
-    <span>Copyright BBC/Terry Nation 1963</span>
-</footer>
+<a th:href="@{/doctor(name=${name},number=${number})}">lien vers la fiche du docteur</a>
+<footer th:insert="fragments/footer.html :: footer"></footer>
+<!-- <footer> -->
+<!--     <ul> -->
+<!--         <li><a href="#">Twitter</a></li> -->
+<!--         <li><a href="#">Facebook</a></li> -->
+<!--         <li><a href="#">TARDIS</a></li> -->
+<!--     </ul> -->
+<!--     <span>Copyright BBC/Terry Nation 1963</span> -->
+<!-- </footer> -->
 </body>
 </html>
+<!--   <h2 th:text="(${article.id}? 'Modifier' : 'Créer') + ' un article'"></h2> -->
